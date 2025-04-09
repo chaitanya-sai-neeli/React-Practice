@@ -2,6 +2,7 @@ import Header from "./Header";
 import ContactList from "./ContactList";
 import AddContact from "./AddContact";
 import { useEffect, useRef, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   // const contacts = [
@@ -14,7 +15,14 @@ function App() {
 
   const addContactsHandler = (contact) => {
     console.log(contact);
-    setContacts([...contacts, contact]);
+    // setContacts([...contacts, contact]);
+    setContacts([...contacts, { id: uuidv4(), ...contact }]);
+  };
+  const removeContactsHandler = (id) => {
+    const newContactsList = contacts.filter((contact) => {
+      return contact.id !== id;
+    });
+    setContacts(newContactsList);
   };
 
   useEffect(() => {
@@ -37,7 +45,10 @@ function App() {
     <div className="ui container">
       <Header />
       <AddContact addContactsHandler={addContactsHandler} />
-      <ContactList contacts={contacts} />
+      <ContactList
+        contacts={contacts}
+        removeContactId={removeContactsHandler}
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import user from "../assets/user.png";
 
-const ContactCard = ({ contact }) => {
+const ContactCard = ({ contact, clickHandler }) => {
   const { id, name, email } = contact;
 
   return (
@@ -13,7 +13,8 @@ const ContactCard = ({ contact }) => {
       </div>
       <i
         className="trash alternate outline icon"
-        style={{ color: "red", marginTop: "7px" }}
+          style={{ color: "red", cursor: "pointer" }}
+          onClick={() => clickHandler(id)}
       ></i>
     </div>
   );

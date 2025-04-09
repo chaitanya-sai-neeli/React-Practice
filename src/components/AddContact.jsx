@@ -15,7 +15,7 @@ const AddContact = ({ addContactsHandler }) => {
   };
 
   return (
-    <div className="ui main">
+    <div className="ui main" style={{ padding: "4rem 0" }}>
       <h2>Add Contact</h2>
       <form className="ui form" onSubmit={handleAddContacts}>
         <div className="field">

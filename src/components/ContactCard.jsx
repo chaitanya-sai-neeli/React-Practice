@@ -20,7 +20,7 @@ const ContactCard = ({ contact, clickHandler }) => {
           <div>{email}</div>
         </div>
         <i
-          className="trash alternate outline icon"
+          className="large trash alternate outline icon"
           style={{ color: "red", cursor: "pointer" }}
           onClick={() => clickHandler(id)}
         ></i>

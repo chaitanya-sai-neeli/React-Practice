@@ -3,6 +3,7 @@ import ContactList from "./ContactList";
 import AddContact from "./AddContact";
 import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   // const contacts = [
@@ -43,12 +44,35 @@ function App() {
 
   return (
     <div className="ui container">
-      <Header />
+      <Router>
+        <Header />
+        <Routes>
+          <Route
+            path="/add"
+            element={<AddContact addContactsHandler={addContactsHandler} />}
+          />
+          <Route
+            path="/"
+            element={
+              <ContactList
+                contacts={contacts}
+                removeContactId={removeContactsHandler}
+              />
+            }
+          />
+        </Routes>
+        {/* <AddContact addContactsHandler={addContactsHandler} />
+        <ContactList
+          contacts={contacts}
+          removeContactId={removeContactsHandler}
+        /> */}
+      </Router>
+      {/* <Header />
       <AddContact addContactsHandler={addContactsHandler} />
       <ContactList
         contacts={contacts}
         removeContactId={removeContactsHandler}
-      />
+      /> */}
     </div>
   );
 }

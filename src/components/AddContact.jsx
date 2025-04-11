@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 
 const AddContact = ({ addContactsHandler }) => {
   const [contact, setContact] = useState({ name: "", email: "" });
+  const location = useLocation();
+  const navigate = useNavigate();
+  const params = useParams();
 
   const handleAddContacts = (e) => {
     e.preventDefault();
@@ -11,7 +15,8 @@ const AddContact = ({ addContactsHandler }) => {
     }
     addContactsHandler(contact);
     setContact({ name: "", email: "" });
-    // console.log(contact);
+    console.log({ addContactsHandler, location, navigate, params });
+    navigate("/");
   };
 
   return (

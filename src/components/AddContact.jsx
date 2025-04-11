@@ -15,7 +15,7 @@ const AddContact = ({ addContactsHandler }) => {
     }
     addContactsHandler(contact);
     setContact({ name: "", email: "" });
-    console.log({ addContactsHandler, location, navigate, params });
+    // console.log({ addContactsHandler, location, navigate, params });
     navigate("/");
   };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import user from "../assets/user.png";
+import { Link } from "react-router-dom";
 
 const ContactCard = ({ contact, clickHandler }) => {
   const { id, name, email } = contact;
@@ -15,10 +16,12 @@ const ContactCard = ({ contact, clickHandler }) => {
           width: "100%",
         }}
       >
-        <div>
-          <div className="header">{name}</div>
-          <div>{email}</div>
-        </div>
+        <Link to={`/contact/${id}`}>
+          <div>
+            <div className="header">{name}</div>
+            <div>{email}</div>
+          </div>
+        </Link>
         <i
           className="large trash alternate outline icon"
           style={{ color: "red", cursor: "pointer" }}

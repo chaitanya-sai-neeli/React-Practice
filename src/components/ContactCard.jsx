@@ -16,7 +16,7 @@ const ContactCard = ({ contact, clickHandler }) => {
           width: "100%",
         }}
       >
-        <Link to={`/contact/${id}`}>
+        <Link to={`/contact/${id}`} state={contact}>
           <div>
             <div className="header">{name}</div>
             <div>{email}</div>

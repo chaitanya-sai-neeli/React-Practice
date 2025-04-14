@@ -32,7 +32,7 @@ const ContactList = ({ contacts, removeContactId }) => {
             className="ui button blue right"
             style={{ marginRight: "30px" }}
           >
-            Add Contact
+            Add New Contact
           </button>
         </Link>
       </div>
